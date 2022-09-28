@@ -1,0 +1,45 @@
+
+  *{
+    padding:0;
+    margin:0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+  }
+
+  .header{
+    height: 100px;
+    background: #344b60;
+    width:100%;
+  }
+
+  .link{
+    position: absolute;
+    line-height: 100px;
+    margin-left: 40px;
+    color:white;
+    font-size: 30px;
+  }
+
+  .header ul{
+    float:right;
+    margin-right: 20px;;
+  }
+  .header ul a{
+    display:inline-block;
+    line-height: 100px;
+    margin:0 20px;
+    color: white;
+    font-size: 30px;
+  }
+
+  .header ul li a i:hover {
+    animation-name: rotate90;
+    animation-duration: 1s;
+  }
+
+  @keyframes rotate90 {
+    from{transform: rotate(0deg);}
+    to{transform: rotate(90deg);}
+  }
+

@@ -1,9 +1,10 @@
 import React from 'react';
 import './Phone.css';
 
-function Phone({id, name, manufacturer, imageFileName}){
+function Phone({color, id, imageFileName, name, manufacturer, price}){
+
     const img_path = `/assets/${imageFileName}`;
-    console.log(img_path);
+    const more_info_path = `/phones/${id}`; 
 
     return(
         <div className='card'>
@@ -11,20 +12,26 @@ function Phone({id, name, manufacturer, imageFileName}){
                 <img src={img_path} alt=''/>
             </div>             
             <div className='info-cont'>
-                <h4>{name}</h4>
-                <p>{manufacturer}</p>
+                <div className='main-info'>
+                    <div className='name-manuf'>
+                        <h2>{name}</h2>
+                        <p>{manufacturer}</p>
+                    </div>
+                    <div className='price'>
+                        <h2>{price}$</h2>
+                    </div>
+                    
+                </div>
+                <div className='lower-bar'>
+                    <i class="fa-solid fa-droplet"></i> 
+                    <p>{color}</p>
+                    <a href={more_info_path}>
+                        <i className="fa-solid fa-circle-info"></i>
+                    </a>
+                </div>
+                
             </div>
         </div>
-
-
-
-
-    /*
-        { <li className='phone'>
-            <h2>{id}</h2>
-            <p>{name}</p>
-            <p>{manufacturer}</p>
-         }</li>*/  
     );
 }
 

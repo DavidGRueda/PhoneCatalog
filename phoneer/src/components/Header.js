@@ -5,7 +5,7 @@ import './Header.css';
 export default function Header(){
     return (
         <nav className='header'>
-            <a href='' className='link'>
+            <a href='/' className='link'>
                 <h1>Phoneer</h1>
             </a>
             <ul>

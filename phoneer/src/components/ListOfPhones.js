@@ -50,14 +50,16 @@ function ListOfPhones(){
         return  (     
             <ul className='list-phones'>
                 {                   
-                    phones.map(({id, name, manufacturer, imageFileName}) => {                       
+                    phones.map(({color, id, imageFileName, name, manufacturer, price}) => {                       
                         return(
                             <Phone 
+                                color={color}
                                 id={id}
                                 key={id}
                                 name={name}
                                 imageFileName={imageFileName}
                                 manufacturer={manufacturer}
+                                price={price}
                             />                            
                         );                      
                     })

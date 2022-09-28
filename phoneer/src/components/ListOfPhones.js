@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import './ListOfPhones.css';
+import Phone from './Phone.js';
 
 const INITIAL_PHONES = [
     {
@@ -8,7 +10,7 @@ const INITIAL_PHONES = [
         "description": "lorem ipsum dolor sit amet consectetur.",
         "color": "black",
         "price": 769,
-        "imageFileName": "IPhone_7.png",
+        "imageFileName": "IPhone_7.jpg",
         "screen": "4,7 inch IPS",
         "processor": "A10 Fusion",
         "ram": 2
@@ -17,23 +19,23 @@ const INITIAL_PHONES = [
         "id": 1,
         "name": "iPhone 8",
         "manufacturer": "Apple",
-        "description": "lorem ipsum dolor sit amet consectetur.",
+        "description": "lore ipsum dolor sit amet consectetur.",
         "color": "black",
         "price": 769,
-        "imageFileName": "IPhone_7.png",
+        "imageFileName": "IPhone_8.jpg",
         "screen": "4,7 inch IPS",
         "processor": "A10 Fusion",
         "ram": 2
     }];
 
 function ListOfPhones(){
-    const [loading, setLoading] = useState(false); //For showing placeholders. 
-    const [phones, setPhones] = useState([])  //Change later to call API
+    const [loading, setLoading] = useState(true); //Used to show placeholders. 
+    const [phones, setPhones] = useState([])  //Phone list retrieved from REST API. 
 
     useEffect(()=>{
         setLoading(true);
-        console.log("Set loading -> True");
         setTimeout(()=>{
+            //getPhones().then(phones => setPhones(phones))
             setPhones(INITIAL_PHONES);  //Later, call API. 
             setLoading(false);
         }, 2000);
@@ -42,20 +44,26 @@ function ListOfPhones(){
 
     if(loading){
         //TODO: return placeholders
-        console.log("La página se está cargando");
         return (<h1>CARGANDO</h1>);
     } else {
         //TODO: return one Phone component for each of the phones recieved.
-        return  (                  
-            phones.map(({id, name, manufacturer}) => {
-                return(
-                    <div className='phone'>
-                        <h2>{id}</h2>
-                        <p>{name}</p>
-                        <p>{manufacturer}</p>
-                    </div>  
-                );                      
-            })              
+        return  (     
+            <ul className='list-phones'>
+                {                   
+                    phones.map(({id, name, manufacturer, imageFileName}) => {                       
+                        return(
+                            <Phone 
+                                id={id}
+                                key={id}
+                                name={name}
+                                imageFileName={imageFileName}
+                                manufacturer={manufacturer}
+                            />                            
+                        );                      
+                    })
+                }
+            </ul>             
+                          
         );
     }
 }

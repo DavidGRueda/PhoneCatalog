@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./ListOfPhones.css";
 import Phone from "./Phone.js";
 import SkeletonPhone from "./SkeletonPhone.js";
+import getPhones from "../services/getPhones";
 
-const INITIAL_PHONES = [
+/* const INITIAL_PHONES = [
   {
     id: 0,
     name: "iPhone 7",
@@ -40,8 +41,8 @@ const INITIAL_PHONES = [
     screen: "4,7 inch IPS",
     processor: "A10 Fusion",
     ram: 2,
-  },
-];
+  }
+]; */
 
 const N_SKELETON = 5;
 
@@ -53,8 +54,9 @@ function ListOfPhones() {
     setLoading(true);
     setTimeout(() => {
       // False timeout to show placeholders
-      //getPhones().then(phones => setPhones(phones))
-      setPhones(INITIAL_PHONES); //Later, call API.
+      getPhones().then((phones) => {
+        setPhones(phones);
+      });
       setLoading(false);
     }, 2000);
   }, []);

@@ -66,7 +66,7 @@ function Phone({
             </div>
           </div>
           <div className="lower-bar">
-            <i class="fa-solid fa-droplet"></i>
+            <i className="fa-solid fa-droplet"></i>
             <p>{color}</p>
             <i
               className="fa-solid fa-circle-info"

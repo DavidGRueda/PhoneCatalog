@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  phoneer-app:
+    image: davidgonzalezrueda/phoneer
+    ports:
+      - "3000:3000"
+    depends_on:
+      - phoneer-api
+    environment:
+      API_PATH: phoneer-api:3001 # Connect to the API with an ENV variable. 
+    networks:
+      - phoneer
+
+  phoneer-api: 
+    image: davidgonzalezrueda/phoneer-api
+    ports:
+      - "3001:3001"
+    networks:
+      - phoneer
+
+networks:
+  phoneer:
+    

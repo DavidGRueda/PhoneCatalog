@@ -1,3 +1,4 @@
 export default function getPhones() {
-  return fetch("http://localhost:3001/getPhones").then((res) => res.json());
+  const path = process.env.API_PATH;
+  return fetch(`http://${path}}/getPhones`).then((res) => res.json());
 }

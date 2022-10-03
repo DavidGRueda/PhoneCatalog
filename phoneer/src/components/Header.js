@@ -8,13 +8,13 @@ export default function Header() {
       <a href="/" className="link">
         <h1>Phoneer</h1>
       </a>
-      <ul>
+      {/* <ul>
         <li>
           <a href="/addPhone">
             <i className="fa-solid fa-plus"></i>
           </a>
         </li>
-      </ul>
+      </ul> */}
     </nav>
   );
 }

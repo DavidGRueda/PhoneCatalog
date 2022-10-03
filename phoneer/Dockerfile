@@ -4,6 +4,7 @@ COPY package.json .
 RUN npm install
 COPY . . 
 EXPOSE 3000
+ARG API_PATH
 CMD ["npm", "start"]
 
 

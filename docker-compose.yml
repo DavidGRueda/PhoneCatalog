@@ -8,7 +8,7 @@ services:
     depends_on:
       - phoneer-api
     environment:
-      API_PATH: phoneer-api:3001 # Connect to the API with an ENV variable. 
+      REACT_APP_API_PATH: phoneer-api:3001 # Connect to the API with an ENV variable. 
     networks:
       - phoneer
 
@@ -16,6 +16,8 @@ services:
     image: davidgonzalezrueda/phoneer-api
     ports:
       - "3001:3001"
+    expose:
+      - "3001"
     networks:
       - phoneer
 

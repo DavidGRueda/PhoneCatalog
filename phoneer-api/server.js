@@ -71,7 +71,7 @@ const SAVED_PHONES = [
   },
 ];
 
-app.get("/getPhones", (req, res) => {
+app.get("/phones", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.send(SAVED_PHONES);
 });
